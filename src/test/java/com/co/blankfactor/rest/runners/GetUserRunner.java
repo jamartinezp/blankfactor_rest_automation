@@ -7,9 +7,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features",
+        features = "src/test/resources/features/get_user.feature",
         glue = {"com.co.blankfactor.rest"},
         snippets = SnippetType.CAMELCASE
 )
-public class GetUsersRunner {
+public class GetUserRunner {
 }
