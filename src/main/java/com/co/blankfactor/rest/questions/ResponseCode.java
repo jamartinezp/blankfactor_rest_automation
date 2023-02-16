@@ -5,19 +5,15 @@ import net.serenitybdd.screenplay.Question;
 
 import static net.serenitybdd.rest.SerenityRest.lastResponse;
 
-public class ResponseCode implements Question<Boolean> {
-    private int statusCode;
+public class ResponseCode implements Question {
 
-    public ResponseCode(int statusCode) {
-        this.statusCode = statusCode;
-    }
 
-    public static ResponseCode Api(int statusCode) {
-        return new ResponseCode(statusCode);
+    public static Question<Integer> was() {
+        return new ResponseCode();
     }
 
     @Override
-    public Boolean answeredBy(Actor actor) {
-        return lastResponse().statusCode() == statusCode;
+    public Integer answeredBy(Actor actor) {
+        return lastResponse().statusCode();
     }
 }
