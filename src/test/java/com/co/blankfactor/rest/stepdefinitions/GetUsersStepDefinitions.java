@@ -12,6 +12,7 @@ import static com.co.blankfactor.rest.exceptions.IncorrectResponseCodeException.
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+import static org.hamcrest.Matchers.equalTo;
 
 public class GetUsersStepDefinitions {
 
@@ -27,7 +28,7 @@ public class GetUsersStepDefinitions {
     @Then("^he looks at the list of users$")
     public void heLooksAtTheListOfUsers() {
         theActorInTheSpotlight()
-                .should(seeThat(ResponseCode.Api(200))
+                .should(seeThat(ResponseCode.was(), equalTo(200))
                         .orComplainWith(IncorrectResponseCodeException.class, INCORRECT_RESPONSE_CODE));
 
     }
