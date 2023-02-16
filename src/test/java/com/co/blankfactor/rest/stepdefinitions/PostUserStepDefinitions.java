@@ -7,15 +7,17 @@ import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
 import net.thucydides.core.util.EnvironmentVariables;
 
+import static com.co.blankfactor.rest.models.builders.UserBuilder.with;
+
 public class PostUserStepDefinitions {
     private EnvironmentVariables environmentVariables;
-    @Given("^hat (.*) want to create his user with his name and his job title, which is: (.*)$")
+    @Given("^that (.*) want to create his user with his name and his job title, which is: (.*)$")
     public void thatBlankWantToCreateANewUserWithPostMethod(String actorName, String job) {
         OnStage.theActorCalled(actorName).whoCan(CallAnApi.at(environmentVariables.getProperty("api.rest.baseUrl")))
-                .attemptsTo(PostUser.inTheSystem());
+                .attemptsTo(PostUser.inTheSystem(with().theName(actorName).andJobTitle(job)));
     }
 
-    @Then("^a new user was created$")
+    @Then("^he see that a new user was created$")
     public void aNewUserWasCreated() {
 
     }
