@@ -5,8 +5,9 @@ import com.co.blankfactor.rest.models.builders.UserBuilder;
 import io.restassured.http.ContentType;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.rest.interactions.Post;
+
+import static net.serenitybdd.screenplay.Tasks.*;
 
 public class PostUser implements Task {
     private static final String ENDPOINT = "/api/users";
@@ -17,7 +18,7 @@ public class PostUser implements Task {
     }
 
     public static PostUser inTheSystem(UserBuilder userBuilder) {
-        return Tasks.instrumented(PostUser.class, userBuilder.build());
+        return instrumented(PostUser.class, userBuilder.build());
     }
 
     @Override
