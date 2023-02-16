@@ -3,7 +3,6 @@ package com.co.blankfactor.rest.models.builders;
 import com.co.blankfactor.rest.models.User;
 import lombok.*;
 @Data
-
 public class UserBuilder {
     private String name;
     private String jobTitle;
