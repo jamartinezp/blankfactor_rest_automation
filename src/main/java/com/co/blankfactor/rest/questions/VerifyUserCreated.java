@@ -20,7 +20,7 @@ public class VerifyUserCreated implements Question<Boolean> {
     public Boolean answeredBy(Actor actor) {
         convertedJson = convertJson(lastResponse().getBody().prettyPrint());
         userData = actor.recall(SESSION_USER_VARIABLE);
-        return verifyUserData() && verifyInformationsFields();
+        return verifyUserData() && verifyInformationField();
     }
 
     private boolean verifyUserData(){
@@ -28,8 +28,8 @@ public class VerifyUserCreated implements Question<Boolean> {
                 && userData.getJobTitle().equals(convertedJson.get("jobTitle"));
     }
 
-    private boolean verifyInformationsFields(){
-        return !"".equals(convertedJson.get("createdAt"))
+    private boolean verifyInformationField(){
+        return convertedJson.containsKey("createdAt")
                 && StringUtils.isNumeric((CharSequence) convertedJson.get("id"));
     }
 }
