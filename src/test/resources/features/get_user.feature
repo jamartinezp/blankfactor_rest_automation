@@ -1,6 +1,6 @@
 #created by Jefferson Martinez
 
-  Feature: Get users
+  Feature: Get user
     Scenario: Get user's info by id
       Given that Blank want to get user's info with id 2
-      Then he looks at the list of users
+      Then he looks at the user information

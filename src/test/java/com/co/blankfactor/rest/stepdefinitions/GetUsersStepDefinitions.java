@@ -25,7 +25,7 @@ public class GetUsersStepDefinitions {
                         GetUser.withId(id)
                 );
     }
-    @Then("^he looks at the list of users$")
+    @Then("^he looks at the user information$")
     public void heLooksAtTheListOfUsers() {
         theActorInTheSpotlight()
                 .should(seeThat(ResponseCode.was(), equalTo(200))
