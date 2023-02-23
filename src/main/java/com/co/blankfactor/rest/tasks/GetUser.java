@@ -8,23 +8,25 @@ import net.serenitybdd.screenplay.rest.interactions.Get;
 import static net.serenitybdd.screenplay.Tasks.*;
 
 public class GetUser implements Task {
-    private static final String ENDPOINT = "/api/users/";
-    private int page;
+    private static final String ENDPOINT = "/api/users/{id}";
+    private int id;
 
-    public GetUser(int page) {
-        this.page = page;
+    public GetUser(int id) {
+        this.id = id;
     }
 
-    public static GetUser byId(int page) {
+    public static GetUser withId(int page) {
         return instrumented(GetUser.class, page);
     }
 
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Get.resource(ENDPOINT + page)
+                Get.resource(ENDPOINT)
                         .with(requestSpecification ->
                                 requestSpecification
-                                        .contentType(ContentType.JSON)));
+                                        .pathParam("id", id)
+                                        .contentType(ContentType.JSON))
+        );
     }
 }

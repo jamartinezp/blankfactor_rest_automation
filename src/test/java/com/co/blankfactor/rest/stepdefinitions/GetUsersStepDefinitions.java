@@ -22,7 +22,7 @@ public class GetUsersStepDefinitions {
         theActorCalled(actorName)
                 .whoCan(CallAnApi.at(environmentVariables.getProperty("api.rest.baseUrl")))
                 .attemptsTo(
-                        GetUser.byId(id)
+                        GetUser.withId(id)
                 );
     }
     @Then("^he looks at the list of users$")
