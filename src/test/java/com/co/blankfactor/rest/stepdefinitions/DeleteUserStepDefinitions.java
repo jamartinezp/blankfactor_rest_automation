@@ -15,12 +15,14 @@ import static net.serenitybdd.screenplay.actors.OnStage.*;
 
 public class DeleteUserStepDefinitions {
     private EnvironmentVariables environmentVariables;
+
     @Given("^that (.*) want to delete an user with id (.*)$")
     public void thatBlankWantToDeleteAnUserWithId(String actorName, int id) {
         theActorCalled(actorName)
                 .whoCan(CallAnApi.at(environmentVariables.getProperty("api.rest.baseUrl")))
                 .attemptsTo(DeleteUser.withId(id));
     }
+
     @Then("^he sees that the user was deleted$")
     public void heSeesThatTheUserWasDeleted() {
         theActorInTheSpotlight()

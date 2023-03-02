@@ -17,6 +17,7 @@ import static org.hamcrest.Matchers.equalTo;
 public class GetUsersStepDefinitions {
 
     private EnvironmentVariables environmentVariables;
+
     @Given("^that (.*) want to get user's info with id (.*)$")
     public void thatBlankWantToKnowHowManyUsersAreInPage(String actorName, int id) {
         theActorCalled(actorName)
@@ -25,6 +26,7 @@ public class GetUsersStepDefinitions {
                         GetUser.withId(id)
                 );
     }
+
     @Then("^he looks at the user information$")
     public void heLooksAtTheListOfUsers() {
         theActorInTheSpotlight()

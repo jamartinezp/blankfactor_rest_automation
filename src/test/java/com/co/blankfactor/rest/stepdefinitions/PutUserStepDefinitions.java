@@ -23,13 +23,14 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class PutUserStepDefinitions {
     private EnvironmentVariables environmentVariables;
+
     @Given("^that (.*) want to update an user with id (.*), sending (.*) as new name and (.*) as new job$")
     public void thatBlankWantToUpdateAnUserWithIdSendingMorpheusAsNewNameAndZoneAsNewJob
             (String actorName, int id, String newName, String newJob) {
         //User userName = FileReaderManager.getInstance().getJsonReader().getCustomerByName(newName);
         //User userJob = FileReaderManager.getInstance().getJsonReader().getUserJob(newJob);
         List<User> users = FileReaderManager.getInstance().getJsonReader().getCustomerData();
-        for (User u:users) {
+        for (User u : users) {
             theActorCalled(actorName).whoCan(CallAnApi.at(environmentVariables.getProperty("api.rest.baseUrl")))
                     .attemptsTo(PutUser.inTheSystem(id, with().theName(u.getName()).andJobTitle(u.getJobTitle())));
         }
@@ -39,10 +40,10 @@ public class PutUserStepDefinitions {
     public void heSeeThatAnUserWasUpdated() {
         theActorInTheSpotlight()
                 .should(seeThat(ResponseCode.was(), equalTo(200))
-                        .orComplainWith(IncorrectResponseCodeException.class, INCORRECT_RESPONSE_CODE ));
+                        .orComplainWith(IncorrectResponseCodeException.class, INCORRECT_RESPONSE_CODE));
 
         theActorInTheSpotlight()
                 .should(seeThat(VerifyUserUpdated.ofTheResponse())
-                        .orComplainWith(IncorrectExpectedValuesException.class, INCORRECT_EXPECTED_VALUES ));
+                        .orComplainWith(IncorrectExpectedValuesException.class, INCORRECT_EXPECTED_VALUES));
     }
 }

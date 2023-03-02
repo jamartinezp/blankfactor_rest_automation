@@ -21,6 +21,7 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class PostUserStepDefinitions {
     private EnvironmentVariables environmentVariables;
+
     @Given("^that (.*) want to create his user with his name and his job title, which is: (.*)$")
     public void thatBlankWantToCreateANewUserWithPostMethod(String actorName, String job) {
         theActorCalled(actorName).whoCan(CallAnApi.at(environmentVariables.getProperty("api.rest.baseUrl")))
@@ -31,10 +32,10 @@ public class PostUserStepDefinitions {
     public void aNewUserWasCreated() {
         theActorInTheSpotlight()
                 .should(seeThat(ResponseCode.was(), equalTo(201))
-                        .orComplainWith(IncorrectResponseCodeException.class, INCORRECT_RESPONSE_CODE ));
+                        .orComplainWith(IncorrectResponseCodeException.class, INCORRECT_RESPONSE_CODE));
 
         theActorInTheSpotlight()
                 .should(seeThat(VerifyUserCreated.ofTheResponse())
-                        .orComplainWith(IncorrectExpectedValuesException.class, INCORRECT_EXPECTED_VALUES ));
+                        .orComplainWith(IncorrectExpectedValuesException.class, INCORRECT_EXPECTED_VALUES));
     }
 }

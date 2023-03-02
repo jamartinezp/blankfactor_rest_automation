@@ -14,7 +14,7 @@ public class DeleteUser implements Task {
         this.id = id;
     }
 
-    public static DeleteUser withId(int id){
+    public static DeleteUser withId(int id) {
         return Tasks.instrumented(DeleteUser.class, id);
     }
 
@@ -22,10 +22,10 @@ public class DeleteUser implements Task {
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 Delete.from(ENDPOINT)
-                        .with(requestSpecification ->
-                                requestSpecification
-                                        .pathParam("id", id)
-                                        .contentType(ContentType.JSON))
+                        .with(requestSpecification
+                                -> requestSpecification
+                                .pathParam("id", id)
+                                .contentType(ContentType.JSON))
         );
     }
 }

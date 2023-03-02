@@ -26,12 +26,12 @@ public class VerifyUserUpdated implements Question<Boolean> {
         return verifyUserData() && verifyInformationField();
     }
 
-    private boolean verifyUserData(){
+    private boolean verifyUserData() {
         return userData.getName().equals(convertedJson.get("name"))
                 && userData.getJobTitle().equals(convertedJson.get("jobTitle"));
     }
 
-    private boolean verifyInformationField(){
+    private boolean verifyInformationField() {
         return convertedJson.containsKey("updatedAt");
     }
 }

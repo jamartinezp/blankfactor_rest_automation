@@ -16,7 +16,7 @@ public class JsonDataReader {
     private final String customerFilePath = FileReaderManager.getInstance().getConfigReader().getTestDataResourcePath() + "user.json";
     private List<User> customerList;
 
-    public JsonDataReader(){
+    public JsonDataReader() {
         customerList = getCustomerData();
     }
 
@@ -27,19 +27,21 @@ public class JsonDataReader {
             bufferReader = new BufferedReader(new FileReader(customerFilePath));
             User[] customers = gson.fromJson(bufferReader, User[].class);
             return Arrays.asList(customers);
-        }catch(FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             throw new RuntimeException("Json file not found at path : " + customerFilePath);
-        }finally {
-            try { if(bufferReader != null) bufferReader.close();}
-            catch (IOException ignore) {}
+        } finally {
+            try {
+                if (bufferReader != null) bufferReader.close();
+            } catch (IOException ignore) {
+            }
         }
     }
 
-    public final User getCustomerByName(String name){
+    public final User getCustomerByName(String name) {
         return customerList.stream().filter(x -> x.getName().equalsIgnoreCase(name)).findAny().get();
     }
 
-    public final User getUserJob(String job){
+    public final User getUserJob(String job) {
         return customerList.stream().filter(x -> x.getJobTitle().equalsIgnoreCase(job)).findAny().get();
     }
 
