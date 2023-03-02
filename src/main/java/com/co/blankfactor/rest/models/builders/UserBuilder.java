@@ -7,11 +7,8 @@ import lombok.*;
 public class UserBuilder {
     private String name;
     private String jobTitle;
-
-    public UserBuilder() {
-        this.name = "";
-        this.jobTitle = "";
-    }
+    private String email;
+    private String password;
 
     public static UserBuilder with() {
         return new UserBuilder();
@@ -19,6 +16,16 @@ public class UserBuilder {
 
     public UserBuilder theName(String name) {
         this.name = name;
+        return this;
+    }
+
+    public UserBuilder theEmail(String email) {
+        this.email = email;
+        return this;
+    }
+
+    public UserBuilder andThePassword(String password) {
+        this.password = password;
         return this;
     }
 
