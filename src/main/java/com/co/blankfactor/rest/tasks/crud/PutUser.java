@@ -1,4 +1,4 @@
-package com.co.blankfactor.rest.tasks;
+package com.co.blankfactor.rest.tasks.crud;
 
 import com.co.blankfactor.rest.models.User;
 import com.co.blankfactor.rest.models.builders.UserBuilder;
@@ -20,7 +20,7 @@ public class PutUser implements Task {
         this.userData = userData;
     }
 
-    public static PutUser inTheSystem(int id, UserBuilder userBuilder){
+    public static PutUser inTheSystem(int id, UserBuilder userBuilder) {
         return instrumented(PutUser.class, id, userBuilder.build());
     }
 
@@ -28,10 +28,10 @@ public class PutUser implements Task {
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 Put.to(ENDPOINT + id)
-                    .with(requestSpecification
-                            -> requestSpecification
-                            .contentType(ContentType.JSON)
-                            .body(userData))
+                        .with(requestSpecification
+                                -> requestSpecification
+                                .contentType(ContentType.JSON)
+                                .body(userData))
         );
         actor.remember(SESSION_USER_VARIABLE, userData);
     }

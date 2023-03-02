@@ -1,4 +1,4 @@
-package com.co.blankfactor.rest.tasks;
+package com.co.blankfactor.rest.tasks.crud;
 
 import com.co.blankfactor.rest.models.User;
 import com.co.blankfactor.rest.models.builders.UserBuilder;

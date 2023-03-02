@@ -1,4 +1,4 @@
-package com.co.blankfactor.rest.runners;
+package com.co.blankfactor.rest.runners.crud;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.SnippetType;
