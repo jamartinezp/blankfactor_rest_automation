@@ -1,14 +1,12 @@
-package com.co.blankfactor.rest.stepdefinitions;
+package com.co.blankfactor.rest.stepdefinitions.crud;
 
 import com.co.blankfactor.rest.exceptions.IncorrectExpectedValuesException;
 import com.co.blankfactor.rest.exceptions.IncorrectResponseCodeException;
 import com.co.blankfactor.rest.questions.ResponseCode;
 import com.co.blankfactor.rest.questions.VerifyUserCreated;
-import com.co.blankfactor.rest.tasks.PostUser;
+import com.co.blankfactor.rest.tasks.crud.PostUser;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import net.serenitybdd.screenplay.actors.OnStage;
-import net.serenitybdd.screenplay.actors.Stage;
 import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
 import net.thucydides.core.util.EnvironmentVariables;
 

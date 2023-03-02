@@ -1,4 +1,4 @@
-package com.co.blankfactor.rest.tasks;
+package com.co.blankfactor.rest.tasks.crud;
 
 import io.restassured.http.ContentType;
 import net.serenitybdd.screenplay.Actor;

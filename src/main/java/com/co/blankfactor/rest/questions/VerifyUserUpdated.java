@@ -6,10 +6,9 @@ import net.serenitybdd.screenplay.Question;
 
 import java.util.Map;
 
-import static com.co.blankfactor.rest.tasks.PostUser.SESSION_USER_VARIABLE;
+import static com.co.blankfactor.rest.tasks.crud.PostUser.SESSION_USER_VARIABLE;
 import static com.co.blankfactor.rest.utils.JsonUtilities.convertJson;
 import static net.serenitybdd.rest.SerenityRest.lastResponse;
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
 
 public class VerifyUserUpdated implements Question<Boolean> {
     private Map convertedJson;

@@ -1,11 +1,11 @@
-package com.co.blankfactor.rest.stepdefinitions;
+package com.co.blankfactor.rest.stepdefinitions.crud;
 
 import com.co.blankfactor.rest.exceptions.IncorrectExpectedValuesException;
 import com.co.blankfactor.rest.exceptions.IncorrectResponseCodeException;
 import com.co.blankfactor.rest.models.User;
 import com.co.blankfactor.rest.questions.ResponseCode;
 import com.co.blankfactor.rest.questions.VerifyUserUpdated;
-import com.co.blankfactor.rest.tasks.PutUser;
+import com.co.blankfactor.rest.tasks.crud.PutUser;
 import com.co.blankfactor.rest.utils.manager.FileReaderManager;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
