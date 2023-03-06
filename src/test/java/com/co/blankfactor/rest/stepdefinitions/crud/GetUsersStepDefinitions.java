@@ -8,6 +8,7 @@ import cucumber.api.java.en.Then;
 import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
 import net.thucydides.core.util.EnvironmentVariables;
 
+import static com.co.blankfactor.rest.Hooks.THE_ACTOR_NAMED;
 import static com.co.blankfactor.rest.exceptions.IncorrectResponseCodeException.INCORRECT_RESPONSE_CODE;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
@@ -18,10 +19,9 @@ public class GetUsersStepDefinitions {
 
     private EnvironmentVariables environmentVariables;
 
-    @Given("^that (.*) want to get user's info with id (.*)$")
-    public void thatBlankWantToKnowHowManyUsersAreInPage(String actorName, int id) {
-        theActorCalled(actorName)
-                .whoCan(CallAnApi.at(environmentVariables.getProperty("api.rest.baseUrl")))
+    @Given("^that an user wants to get user's info with id (.*)$")
+    public void thatBlankWantToKnowHowManyUsersAreInPage(int id) {
+        THE_ACTOR_NAMED.whoCan(CallAnApi.at(environmentVariables.getProperty("api.rest.baseUrl")))
                 .attemptsTo(
                         GetUser.withId(id)
                 );
@@ -29,8 +29,7 @@ public class GetUsersStepDefinitions {
 
     @Then("^he looks at the user information$")
     public void heLooksAtTheListOfUsers() {
-        theActorInTheSpotlight()
-                .should(seeThat(ResponseCode.was(), equalTo(200))
+        THE_ACTOR_NAMED.should(seeThat(ResponseCode.was(), equalTo(200))
                         .orComplainWith(IncorrectResponseCodeException.class, INCORRECT_RESPONSE_CODE));
 
     }
