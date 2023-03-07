@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features/delete_user.feature",
+        features = "src/test/resources/features/crud/delete_user.feature",
         glue = {"com.co.blankfactor.rest"},
         snippets = SnippetType.CAMELCASE
 )

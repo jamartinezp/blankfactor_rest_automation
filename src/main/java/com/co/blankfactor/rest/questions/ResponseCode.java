@@ -5,10 +5,10 @@ import net.serenitybdd.screenplay.Question;
 
 import static net.serenitybdd.rest.SerenityRest.lastResponse;
 
-public class ResponseCode implements Question {
+public class ResponseCode implements Question<Integer> {
 
 
-    public static Question<Integer> was() {
+    public static ResponseCode was() {
         return new ResponseCode();
     }
 

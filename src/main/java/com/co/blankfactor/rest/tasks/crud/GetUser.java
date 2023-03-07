@@ -23,10 +23,10 @@ public class GetUser implements Task {
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 Get.resource(ENDPOINT)
-                        .with(requestSpecification ->
-                                requestSpecification
-                                        .pathParam("id", id)
-                                        .contentType(ContentType.JSON))
+                        .with(requestSpecification
+                                -> requestSpecification
+                                .pathParam("id", id)
+                                .contentType(ContentType.JSON))
         );
     }
 }

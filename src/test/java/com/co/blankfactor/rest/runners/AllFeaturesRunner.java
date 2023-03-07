@@ -1,4 +1,4 @@
-package com.co.blankfactor.rest.runners.crud;
+package com.co.blankfactor.rest.runners;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.SnippetType;
@@ -7,9 +7,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features/crud/post_user.feature",
+        features = "src/test/resources/features",
         glue = {"com.co.blankfactor.rest"},
         snippets = SnippetType.CAMELCASE
 )
-public class PostUserRunner {
+public class AllFeaturesRunner {
 }

@@ -7,9 +7,13 @@ import lombok.*;
 public class User {
     private String name;
     private String jobTitle;
+    private String email;
+    private String password;
 
     public User(UserBuilder userBuilder) {
         this.name = userBuilder.getName();
         this.jobTitle = userBuilder.getJobTitle();
+        this.email = userBuilder.getEmail();
+        this.password = userBuilder.getPassword();
     }
 }
