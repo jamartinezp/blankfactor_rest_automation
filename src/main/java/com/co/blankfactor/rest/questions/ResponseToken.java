@@ -9,7 +9,6 @@ import static com.co.blankfactor.rest.utils.JsonUtilities.convertJson;
 import static net.serenitybdd.rest.SerenityRest.lastResponse;
 
 public class ResponseToken implements Question<String> {
-    private Map convertedJson;
     public static final String TOKEN = "TOKEN";
 
     public static ResponseToken wasSave() {
@@ -18,7 +17,7 @@ public class ResponseToken implements Question<String> {
 
     @Override
     public String answeredBy(Actor actor) {
-        convertedJson = convertJson(lastResponse().getBody().prettyPrint());
+        Map<?,?> convertedJson = convertJson(lastResponse().getBody().prettyPrint());
         actor.remember(TOKEN, convertedJson.get("token"));
         return convertedJson.get("token").toString();
     }

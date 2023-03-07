@@ -12,7 +12,7 @@ import static net.serenitybdd.screenplay.Tasks.*;
 public class PostUser implements Task {
     private static final String ENDPOINT = "/api/users";
     public static final String SESSION_USER_VARIABLE = "SESSION USER VARIABLE";
-    private User userData;
+    private final User userData;
 
     public PostUser(User userData) {
         this.userData = userData;

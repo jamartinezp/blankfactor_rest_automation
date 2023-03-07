@@ -12,8 +12,8 @@ import static net.serenitybdd.screenplay.Tasks.*;
 public class PutUser implements Task {
     private static final String ENDPOINT = "/api/users/";
     public static final String SESSION_USER_VARIABLE = "SESSION USER VARIABLE";
-    private int id;
-    private User userData;
+    private final int id;
+    private final User userData;
 
     public PutUser(int id, User userData) {
         this.id = id;

@@ -8,7 +8,7 @@ import net.serenitybdd.screenplay.rest.interactions.Delete;
 
 public class DeleteUser implements Task {
     private static final String ENDPOINT = "/api/users/{id}";
-    private int id;
+    private final int id;
 
     public DeleteUser(int id) {
         this.id = id;

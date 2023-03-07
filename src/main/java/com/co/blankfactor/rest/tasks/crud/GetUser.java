@@ -9,7 +9,7 @@ import static net.serenitybdd.screenplay.Tasks.*;
 
 public class GetUser implements Task {
     private static final String ENDPOINT = "/api/users/{id}";
-    private int id;
+    private final int id;
 
     public GetUser(int id) {
         this.id = id;
