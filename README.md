@@ -1,89 +1,87 @@
 #BlankFactor - Automation API REST
 
 
-# Pre-requisitos📋
-1.   Java v1.8 update 151 o superior y JDK (variables de entorno configuradas)
-2.   IntelliJ IDEA (2021) o Eclipse IDE (Oxigen o Neon)
-3.   Gradle v7.6 o superior
+# Pre-requisites📋
+1.   Java v1.8 update 151 or higher and JDK (Configured environment variables)
+2.   IntelliJ IDEA (2021) or Eclipse IDE (Oxygen or Neon)
+3.   Gradle v7.6 or higher
 4.   Cucumber
 
-# Instalación 🔧
-- Importar el proyecto desde Eclipse o Intellij IDE bajo la estructura de un proyecto Gradle existente.
-- Configurar JRE System Library con JavaSE-1.8
-- Configurar la codificación a UTF-8 al proyecto una vez sea importado.
+# Installation 🔧
+- Import the project from Eclipse or Intellij IDE under the structure of an existing Gradle project.
+- Configure JRE System Library with JavaSE-1.8
+- Set the encoding to UTF-8 to the project once it is imported.
 
 
-# Compilar el proyecto y generar Wrapper 🔨
-- Para compilar el proyecto se debe ejecutar el comando: gradle clean build -x test
-- Para generar los archivos wrapper del proyecto se debe ejecutar el comando: gradle wrapper --gradle-distribution-url=https://services.gradle.org/distributions/gradle-7.6-all.zip
+# Compile the project and generate the Wrapper file 🔨
+- To compile the project, you have to execute the command: gradle clean build -x test
+- To generate the project wrapper files, execute the command: gradle wrapper --gradle-distribution-url=https://services.gradle.org/distributions/gradle-7.6-all.zip
 
 
-# Para Ejecutar Las Pruebas ⚙️
+# Run the tests ⚙️
 
 
-## Comandos de ejecucion 💻
-- ejecutar todos los features: `gradle clean test aggregate --info`
-- ejecutar feature especifico: `gradle clean test clean test --tests "runners.nombreDelRunner" aggregate --info`
+## Execution commands 💻
+- Run all features: `gradle clean test aggregate --info`
+- Run a specific feature: `gradle clean test clean test --tests "runners.RunnerName" aggregate --info`
 
 
-#Detalles Generales De La Implementación 💻
+# General implementation details 💻
 
-###🚧 La estructura completa del proyecto es la siguiente:
+### 🚧 The complete structure of the project is as follows:
 
 **src/main/java**
 + exceptions
 
-  Clases que capturan excepciones personalizadas cuando falla la automatización.
+  Classes that catch custom exceptions when the automation fails.
 
 + models
 
-  Clases con las que se construyen los modelos de datos, usando un builder cuando es necesario.
+  Classes with which data models are built, using a builder when necessary.
 
 + questions
 
-  Clases con las que se realizan las validaciones de las pruebas, se hace en forma de pregunta para conocer el resultado o estado en que se encuentra luego de haber ejecutado las tareas.
+  Classes with which the validations of the tests are carried out, it is done in the form of a question to know the result or state in which it is found after having executed the tasks.
 
 + tasks
 
-  Clases que realizan las acciones de alto nivel (proceso de negocio), se componen de llamados a interacciones u otras tareas.
+  Classes that perform high-level actions (business process), are composed of calls to interactions or other tasks.
 
-+ util
++ utils
 
-  Clases que contienen funcionalidades comunes.
+  Classes that contain commons functionalities.
 
 
 **src/test/java**
 + runners:
 
-  Clases para ejecutar la automatización con los escenarios indicados en el feature.
+  Classes to execute the automation with the scenarios indicated in the feature.
 
 + stepdefinitions:
 
-  Clases donde se acopla el lenguaje Gherkin con que se escriben los escenarios y el código java que va a ser ejecutado para la automatización.
-
+  Classes where the Gherkin language is coupled with which the scenarios and the java code to be executed for the automation are written.
 
 **src/test/resources**
 + data:
 
-  Datos de prueba utilizados por la automatización.
+  Test data used by the automation.
 
 + serenity.conf:
 
-  archivos de propiedades corresponden a una clase de archivos de texto, que permiten realizar la precarga de información a un aplicativo.
-  para este caso se usa para almacenar la API Rest
+  property files correspond to a class of text files, which allow the preloading of information to an application.
+  for this case it is used to store the Rest API
 
 + features:
 
-  Se encuentran los features del proyecto que es donde se escriben los escenarios o historias que lleva a cabo el usuario a nivel de negocio.
+  The features of the project are found, which is where the scenarios or stories carried out by the user at the business level are written.
 
-
-# Construido Con 🛠️
-La automatización fue desarrollada con:
-- BDD - Estrategia de desarrollo
-- Screenplay (Patrón de diseño enfocado a desarrollo de pruebas automatizadas)
+# Built with 🛠️
+The automation was developed with:
+- BDD - Development strategy
+- Screenplay (Design pattern focused on development of automated tests)
 - Gradle
 - Serenity API Rest
 - Cucumber
-- Serenity BDD - Biblioteca de código abierto para la generación de reportes-
-- Gherkin - Lenguaje Business Readable DSL (Lenguaje especifico de dominio legible por el negocio)
+- Serenity BDD - Open source library for generating reports
+- Gherkin - Business Readable DSL Language (Domain Specific Language readable by the business)
 
