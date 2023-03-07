@@ -6,10 +6,11 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.rest.interactions.Get;
 
-import static com.co.blankfactor.rest.questions.ResponseToken.RECALL_TOKEN;
+import static com.co.blankfactor.rest.questions.ResponseToken.TOKEN;
 
 public class GetAllUsers implements Task {
     private static final String ENDPOINT = "/api/unknown";
+    private static String REMEMBERED_TOKEN;
 
     public static GetAllUsers inTheSystem() {
         return Tasks.instrumented(GetAllUsers.class);
@@ -17,12 +18,13 @@ public class GetAllUsers implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
+        REMEMBERED_TOKEN = actor.recall(TOKEN);
         actor.attemptsTo(
                 Get.resource(ENDPOINT)
                         .with(requestSpecification
                                 -> requestSpecification
                                 .contentType(ContentType.JSON)
-                                .header("token", RECALL_TOKEN)));
+                                .header("token", REMEMBERED_TOKEN)));
 
     }
 }
