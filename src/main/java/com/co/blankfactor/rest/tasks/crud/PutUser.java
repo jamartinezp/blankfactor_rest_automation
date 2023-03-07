@@ -10,7 +10,7 @@ import net.serenitybdd.screenplay.rest.interactions.Put;
 import static net.serenitybdd.screenplay.Tasks.*;
 
 public class PutUser implements Task {
-    private static final String ENDPOINT = "/api/users/";
+    private static final String ENDPOINT = "/api/users/{id}";
     public static final String SESSION_USER_VARIABLE = "SESSION USER VARIABLE";
     private final int id;
     private final User userData;
@@ -27,9 +27,10 @@ public class PutUser implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Put.to(ENDPOINT + id)
+                Put.to(ENDPOINT)
                         .with(requestSpecification
                                 -> requestSpecification
+                                .pathParam("id", id)
                                 .contentType(ContentType.JSON)
                                 .body(userData))
         );
