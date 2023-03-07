@@ -12,7 +12,7 @@ import static com.co.blankfactor.rest.utils.JsonUtilities.convertJson;
 import static net.serenitybdd.rest.SerenityRest.lastResponse;
 
 public class VerifyUserCreated implements Question<Boolean> {
-    private Map convertedJson;
+    private Map<?,?> convertedJson;
     private User userData;
 
     public static VerifyUserCreated ofTheResponse() {
