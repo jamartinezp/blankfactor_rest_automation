@@ -10,8 +10,7 @@ import static net.serenitybdd.rest.SerenityRest.lastResponse;
 
 public class ResponseToken implements Question<String> {
     private Map convertedJson;
-    private static final String TOKEN = "TOKEN";
-    public static String RECALL_TOKEN;
+    public static final String TOKEN = "TOKEN";
 
     public static ResponseToken wasSave() {
         return new ResponseToken();
@@ -21,6 +20,6 @@ public class ResponseToken implements Question<String> {
     public String answeredBy(Actor actor) {
         convertedJson = convertJson(lastResponse().getBody().prettyPrint());
         actor.remember(TOKEN, convertedJson.get("token"));
-        return RECALL_TOKEN = actor.recall(TOKEN);
+        return convertedJson.get("token").toString();
     }
 }
