@@ -17,7 +17,7 @@ import static net.serenitybdd.screenplay.actors.OnStage.*;
 public class DeleteUserStepDefinitions {
     private EnvironmentVariables environmentVariables;
 
-    @Given("^that an user wants to delete an user with id (.*)$")
+    @Given("^that a user wants to delete an user with id (.*)$")
     public void thatBlankWantToDeleteAnUserWithId( int id) {
         THE_ACTOR_NAMED.whoCan(CallAnApi.at(environmentVariables.getProperty("api.rest.baseUrl")))
                 .attemptsTo(DeleteUser.withId(id));

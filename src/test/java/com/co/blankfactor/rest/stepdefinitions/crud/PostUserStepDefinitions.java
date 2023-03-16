@@ -21,7 +21,7 @@ import static org.hamcrest.Matchers.equalTo;
 public class PostUserStepDefinitions {
     private EnvironmentVariables environmentVariables;
 
-    @Given("^that an user wants to create his user with (.*) and his job title, which is: (.*)$")
+    @Given("^that a user wants to create his user with (.*) and his job title, which is: (.*)$")
     public void thatBlankWantToCreateANewUserWithPostMethod(String name, String job) {
         THE_ACTOR_NAMED.whoCan(CallAnApi.at(environmentVariables.getProperty("api.rest.baseUrl")))
                 .attemptsTo(PostUser.inTheSystem(with().theName(name).andJobTitle(job)));

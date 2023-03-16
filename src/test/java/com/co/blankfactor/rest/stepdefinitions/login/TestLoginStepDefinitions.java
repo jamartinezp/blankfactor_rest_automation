@@ -16,7 +16,7 @@ import static org.hamcrest.Matchers.equalTo;
 public class TestLoginStepDefinitions {
     private EnvironmentVariables environmentVariables;
 
-    @Given("^that an user wants to see all users in the system$")
+    @Given("^that a user wants to see all users in the system$")
     public void thatAnUserWantsToSeeAllUsersInTheSystem() {
         THE_ACTOR_NAMED.whoCan(CallAnApi.at(environmentVariables.getProperty("api.rest.baseUrl")))
                 .attemptsTo(GetAllUsers.inTheSystem());

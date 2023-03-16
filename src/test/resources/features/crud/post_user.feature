@@ -3,7 +3,7 @@
 Feature: Post user
 
   Scenario Outline: Create a new user
-    Given that an user wants to create his user with <name> and his job title, which is: <job>
+    Given that a user wants to create his user with <name> and his job title, which is: <job>
     Then he see that a new user was created
 
     Examples:

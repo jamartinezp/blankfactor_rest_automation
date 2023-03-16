@@ -23,7 +23,7 @@ import static org.hamcrest.Matchers.*;
 public class LoginStepDefinitions {
     private EnvironmentVariables environmentVariables;
 
-    @Given("^that an user wants to login successfully with (.*) and (.*)$")
+    @Given("^that a user wants to login successfully with (.*) and (.*)$")
     public void thatBlankWantToLoginSuccessfullyWithHelloAnd(String email, String password) {
         THE_ACTOR_NAMED.whoCan(CallAnApi.at(environmentVariables.getProperty("api.rest.baseUrl")))
                 .attemptsTo(Login.inTheSystem(with().theEmail(email).andThePassword(password)));

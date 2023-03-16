@@ -3,7 +3,7 @@
 Feature: Put user
 
   Scenario Outline: Update an user
-    Given that an user wants to update an user with id 3, sending <newName> as new name and <newJob> as new job
+    Given that a user wants to update an user with id 3, sending <newName> as new name and <newJob> as new job
     Then he see that an user was updated
 
     Examples:

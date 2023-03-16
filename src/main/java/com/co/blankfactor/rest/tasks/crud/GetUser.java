@@ -15,8 +15,8 @@ public class GetUser implements Task {
         this.id = id;
     }
 
-    public static GetUser withId(int page) {
-        return instrumented(GetUser.class, page);
+    public static GetUser withId(int id) {
+        return instrumented(GetUser.class, id);
     }
 
     @Override

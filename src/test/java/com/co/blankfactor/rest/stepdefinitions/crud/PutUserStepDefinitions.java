@@ -25,7 +25,7 @@ import static org.hamcrest.Matchers.equalTo;
 public class PutUserStepDefinitions {
     private EnvironmentVariables environmentVariables;
 
-    @Given("^that an user wants to update an user with id (.*), sending (.*) as new name and (.*) as new job$")
+    @Given("^that a user wants to update an user with id (.*), sending (.*) as new name and (.*) as new job$")
     public void thatBlankWantToUpdateAnUserWithIdSendingMorpheusAsNewNameAndZoneAsNewJob
             (int id, String newName, String newJob) {
         //User userName = FileReaderManager.getInstance().getJsonReader().getCustomerByName(newName);

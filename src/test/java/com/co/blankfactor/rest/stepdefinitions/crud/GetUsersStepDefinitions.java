@@ -19,7 +19,7 @@ public class GetUsersStepDefinitions {
 
     private EnvironmentVariables environmentVariables;
 
-    @Given("^that an user wants to get user's info with id (.*)$")
+    @Given("^that a user wants to get user's info with id (.*)$")
     public void thatBlankWantToKnowHowManyUsersAreInPage(int id) {
         THE_ACTOR_NAMED.whoCan(CallAnApi.at(environmentVariables.getProperty("api.rest.baseUrl")))
                 .attemptsTo(
