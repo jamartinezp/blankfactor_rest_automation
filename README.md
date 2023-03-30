@@ -15,7 +15,7 @@
 
 # Compile the project and generate the Wrapper file 🔨
 - To compile the project, you have to execute the command: gradle clean build -x test
-- To generate the project wrapper files, execute the command: gradle wrapper --gradle-distribution-url=https://services.gradle.org/distributions/gradle-7.6-all.zip
+- To generate the project wrapper files, execute the command: gradle wrapper --gradle-distribution-url=https://services.gradle.org/distributions/gradle-6.7-all.zip
 
 
 # Run the tests ⚙️
