@@ -7,9 +7,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features/crud/post_user.feature",
+        features = "src/test/resources/features/crud",
         glue = {"com.co.blankfactor.rest"},
         snippets = SnippetType.CAMELCASE
 )
-public class PostUserRunner {
+public class CrudRunner {
 }

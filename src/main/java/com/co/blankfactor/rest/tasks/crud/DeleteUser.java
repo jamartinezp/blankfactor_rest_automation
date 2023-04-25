@@ -6,6 +6,8 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.rest.interactions.Delete;
 
+import static net.serenitybdd.screenplay.Tasks.*;
+
 public class DeleteUser implements Task {
     private static final String ENDPOINT = "/api/users/{id}";
     private final int id;
@@ -15,7 +17,7 @@ public class DeleteUser implements Task {
     }
 
     public static DeleteUser withId(int id) {
-        return Tasks.instrumented(DeleteUser.class, id);
+        return instrumented(DeleteUser.class, id);
     }
 
     @Override

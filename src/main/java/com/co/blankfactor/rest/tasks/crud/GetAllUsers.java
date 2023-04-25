@@ -7,13 +7,14 @@ import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.rest.interactions.Get;
 
 import static com.co.blankfactor.rest.questions.ResponseToken.TOKEN;
+import static net.serenitybdd.screenplay.Tasks.*;
 
 public class GetAllUsers implements Task {
     private static final String ENDPOINT = "/api/unknown";
     private static String REMEMBERED_TOKEN;
 
     public static GetAllUsers inTheSystem() {
-        return Tasks.instrumented(GetAllUsers.class);
+        return instrumented(GetAllUsers.class);
     }
 
     @Override
